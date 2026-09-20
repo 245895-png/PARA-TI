@@ -1,0 +1,1719 @@
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+===================================================== */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+
+    min-height: 100%;
+
+}
+
+
+body {
+
+    overflow: hidden;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 20%,
+            #173b63 0%,
+            #092342 40%,
+            #041326 100%
+        );
+
+    color: white;
+
+    perspective: 1200px;
+
+}
+
+
+/* =====================================================
+   FONDO
+===================================================== */
+
+.fondo {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 0;
+
+    overflow: hidden;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            #06172f 0%,
+            #0a2748 45%,
+            #123d4d 75%,
+            #082b25 100%
+        );
+
+}
+
+
+/* =====================================================
+   ESTRELLAS
+===================================================== */
+
+.estrellas {
+
+    position: absolute;
+
+    inset: 0;
+
+}
+
+
+.estrellas::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.9) 1px,
+            transparent 1.5px
+        );
+
+    background-size:
+        80px 80px;
+
+    opacity: .75;
+
+    animation:
+        parpadeoEstrellas
+        4s
+        ease-in-out
+        infinite alternate;
+
+}
+
+
+@keyframes parpadeoEstrellas {
+
+    from {
+        opacity: .35;
+    }
+
+    to {
+        opacity: .9;
+    }
+
+}
+
+
+/* =====================================================
+   LUNA
+===================================================== */
+
+.luna {
+
+    position: absolute;
+
+    right: 8%;
+
+    top: 8%;
+
+    width: 150px;
+
+    height: 150px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle at 35% 30%,
+            #fffde7,
+            #fff59d 55%,
+            #ffd54f 100%
+        );
+
+    box-shadow:
+
+        0 0 25px
+        rgba(255,235,120,.8),
+
+        0 0 60px
+        rgba(255,220,80,.55),
+
+        0 0 110px
+        rgba(255,220,80,.25);
+
+    animation:
+
+        brilloLuna
+        4s
+        ease-in-out
+        infinite alternate;
+
+}
+
+
+@keyframes brilloLuna {
+
+    from {
+
+        box-shadow:
+
+            0 0 25px
+            rgba(255,235,120,.7),
+
+            0 0 55px
+            rgba(255,220,80,.45);
+
+    }
+
+    to {
+
+        box-shadow:
+
+            0 0 35px
+            rgba(255,235,120,.95),
+
+            0 0 90px
+            rgba(255,220,80,.7);
+
+    }
+
+}
+
+
+.crater {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    background:
+        rgba(220,190,70,.18);
+
+}
+
+
+.crater1 {
+
+    width: 30px;
+    height: 30px;
+
+    left: 35px;
+    top: 30px;
+
+}
+
+
+.crater2 {
+
+    width: 18px;
+    height: 18px;
+
+    right: 35px;
+    top: 60px;
+
+}
+
+
+.crater3 {
+
+    width: 24px;
+    height: 24px;
+
+    left: 65px;
+    bottom: 25px;
+
+}
+
+
+/* =====================================================
+   ESCENA
+===================================================== */
+
+.escena {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    perspective: 1200px;
+
+}
+
+
+.contenedor {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    transform-style:
+        preserve-3d;
+
+    transition:
+
+        transform
+        3s
+        cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.titulo {
+
+    position: absolute;
+
+    top: 5%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 90%;
+
+    text-align: center;
+
+    z-index: 30;
+
+}
+
+
+.titulo h1 {
+
+    font-size: clamp(
+        48px,
+        7vw,
+        82px
+    );
+
+    color: #fffde7;
+
+    text-shadow:
+
+        0 0 10px #fff59d,
+
+        0 0 25px #ffd740,
+
+        0 0 50px #ffc107;
+
+    animation:
+
+        brilloTitulo
+        3s
+        ease-in-out
+        infinite alternate;
+
+}
+
+
+.titulo h1 span {
+
+    display: inline-block;
+
+    animation:
+
+        balanceoFlor
+        3s
+        ease-in-out
+        infinite;
+
+}
+
+
+.titulo p {
+
+    margin-top: 8px;
+
+    font-size: clamp(
+        16px,
+        2vw,
+        25px
+    );
+
+    color: #fffde7;
+
+    text-shadow:
+        0 2px 8px #000;
+
+}
+
+
+@keyframes brilloTitulo {
+
+    from {
+
+        text-shadow:
+
+            0 0 10px #fff59d,
+
+            0 0 20px #ffd740;
+
+    }
+
+    to {
+
+        text-shadow:
+
+            0 0 20px #fff59d,
+
+            0 0 45px #ffd740,
+
+            0 0 70px #ffc107;
+
+    }
+
+}
+
+
+@keyframes balanceoFlor {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(-5deg);
+
+    }
+
+    50% {
+
+        transform:
+            rotate(5deg);
+
+    }
+
+}
+
+
+/* =====================================================
+   CAMPO DE TULIPANES
+===================================================== */
+
+#campoTulipanes {
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -10px;
+
+    width: 100%;
+
+    height: 40vh;
+
+    z-index: 8;
+
+    pointer-events: none;
+
+    perspective: 1200px;
+
+    transform-style:
+        preserve-3d;
+
+    transition:
+
+        transform
+        3s
+        cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+/* SUELO */
+
+#campoTulipanes::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: -5%;
+
+    bottom: -20px;
+
+    width: 110%;
+
+    height: 70px;
+
+    border-radius:
+        50% 50% 0 0;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            #27632d,
+            #174d24,
+            #092b19
+        );
+
+    box-shadow:
+
+        0 -10px 30px
+        rgba(80,180,80,.25);
+
+}
+
+
+/* =====================================================
+   TULIPANES GENERADOS
+===================================================== */
+
+.tulipan-campo {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 35px;
+
+    height: 115px;
+
+    transform-style:
+        preserve-3d;
+
+    transform:
+
+        translateZ(
+            var(--profundidad)
+        )
+        scale(
+            var(--escala)
+        );
+
+    transform-origin:
+        bottom center;
+
+    animation:
+
+        vientoCampo
+        4s
+        ease-in-out
+        infinite;
+
+    will-change:
+        transform;
+
+}
+
+
+.flor-campo {
+
+    position: absolute;
+
+    left: 3px;
+
+    top: 0;
+
+    width: 29px;
+
+    height: 38px;
+
+    border-radius:
+
+        50%
+        50%
+        45%
+        45%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #f9a825,
+            #ffeb3b,
+            #fbc02d
+        );
+
+    box-shadow:
+
+        0 0 10px
+        rgba(255,210,40,.6);
+
+}
+
+
+.flor-campo::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 7px;
+
+    top: -5px;
+
+    width: 16px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #ffd600,
+            #fff59d
+        );
+
+}
+
+
+.tallo-campo {
+
+    position: absolute;
+
+    left: 15px;
+
+    top: 32px;
+
+    width: 5px;
+
+    height: 85px;
+
+    border-radius: 10px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #155d25,
+            #4caf50,
+            #155d25
+        );
+
+}
+
+
+.tallo-campo::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: -13px;
+
+    top: 40px;
+
+    width: 19px;
+
+    height: 55px;
+
+    border-radius:
+
+        100%
+        0
+        100%
+        0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #1b5e20,
+            #4caf50
+        );
+
+    transform:
+        rotate(-30deg);
+
+}
+
+
+@keyframes vientoCampo {
+
+    0% {
+
+        margin-left: 0;
+
+    }
+
+    50% {
+
+        margin-left: 4px;
+
+    }
+
+    100% {
+
+        margin-left: 0;
+
+    }
+
+}
+
+
+/* =====================================================
+   TULIPANES PRINCIPALES
+===================================================== */
+
+.tulipanes-principales {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 25%;
+
+    width: 500px;
+
+    height: 430px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 15;
+
+}
+
+
+.tulipan {
+
+    position: absolute;
+
+    bottom: 0;
+
+    transform-origin:
+        bottom center;
+
+    animation:
+
+        vientoPrincipal
+        4s
+        ease-in-out
+        infinite;
+
+}
+
+
+.tulipan.principal {
+
+    left: 42%;
+
+    transform:
+        translateX(-50%)
+        scale(1.3);
+
+}
+
+
+.tulipan.mediano {
+
+    left: 18%;
+
+    transform:
+        scale(.85);
+
+    animation-delay:
+        -.8s;
+
+}
+
+
+.tulipan.mediano2 {
+
+    right: 12%;
+
+    transform:
+        scale(.9);
+
+    animation-delay:
+        -1.5s;
+
+}
+
+
+.flor {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 75px;
+
+    height: 85px;
+
+    border-radius:
+        50%
+        50%
+        45%
+        45%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #f9a825,
+            #ffeb3b,
+            #fbc02d
+        );
+
+    box-shadow:
+
+        0 0 20px
+        rgba(255,210,40,.75);
+
+}
+
+
+.flor::before,
+.flor::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 5px;
+
+    width: 42px;
+
+    height: 72px;
+
+    border-radius:
+        50%;
+
+    background:
+        #ffd740;
+
+}
+
+
+.flor::before {
+
+    left: -20px;
+
+}
+
+
+.flor::after {
+
+    right: -20px;
+
+}
+
+
+.flor span {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: -5px;
+
+    transform:
+        translateX(-50%);
+
+    width: 35px;
+
+    height: 80px;
+
+    border-radius: 50%;
+
+    background:
+        #fff176;
+
+    z-index: 2;
+
+}
+
+
+.tallo {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 70px;
+
+    transform:
+        translateX(-50%);
+
+    width: 8px;
+
+    height: 210px;
+
+    border-radius: 10px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #1b5e20,
+            #66bb6a,
+            #1b5e20
+        );
+
+}
+
+
+.hoja {
+
+    position: absolute;
+
+    width: 42px;
+
+    height: 130px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #1b5e20,
+            #4caf50
+        );
+
+    border-radius:
+        100%
+        0
+        100%
+        0;
+
+}
+
+
+.hoja1 {
+
+    left: 5px;
+
+    top: 145px;
+
+    transform:
+        rotate(-35deg);
+
+}
+
+
+.hoja2 {
+
+    right: 0;
+
+    top: 120px;
+
+    transform:
+        rotate(35deg)
+        scaleX(-1);
+
+}
+
+
+@keyframes vientoPrincipal {
+
+    0%,
+    100% {
+
+        rotate:
+            -2deg;
+
+    }
+
+    50% {
+
+        rotate:
+            2deg;
+
+    }
+
+}
+
+
+/* =====================================================
+   MENSAJE
+===================================================== */
+
+.mensaje {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 17%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 35;
+
+    padding:
+        16px
+        30px;
+
+    min-width: 350px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,.12);
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    backdrop-filter:
+        blur(8px);
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.25);
+
+}
+
+
+.mensaje p {
+
+    font-size: 20px;
+
+    color: #fffde7;
+
+}
+
+
+/* =====================================================
+   BOTÓN
+===================================================== */
+
+#boton {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 8%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 40;
+
+    border: none;
+
+    padding:
+        18px
+        38px;
+
+    border-radius:
+        40px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ffd600,
+            #ffb300
+        );
+
+    color: #4e342e;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+
+        0 8px 25px
+        rgba(255,193,7,.45);
+
+    transition:
+
+        transform .3s,
+
+        box-shadow .3s;
+
+}
+
+
+#boton:hover {
+
+    transform:
+        translateX(-50%)
+        scale(1.08);
+
+    box-shadow:
+
+        0 12px 40px
+        rgba(255,193,7,.75);
+
+}
+
+
+#boton:active {
+
+    transform:
+        translateX(-50%)
+        scale(.96);
+
+}
+
+
+/* =====================================================
+   ESTADO DE MÚSICA
+===================================================== */
+
+#estadoMusica {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 2.5%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 40;
+
+    font-size: 14px;
+
+    color:
+        rgba(255,255,255,.8);
+
+}
+
+
+/* =====================================================
+   LUCIÉRNAGAS
+===================================================== */
+
+#luciernagas {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 20;
+
+    pointer-events: none;
+
+}
+
+
+.luciernaga {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    background: #fff59d;
+
+    box-shadow:
+
+        0 0 8px #fff59d,
+
+        0 0 18px #ffd600,
+
+        0 0 30px #ffb300;
+
+    animation:
+
+        volar
+        var(--duracion)
+        ease-in-out
+        infinite;
+
+    animation-delay:
+        var(--retraso);
+
+}
+
+
+@keyframes volar {
+
+    0% {
+
+        transform:
+            translate(0,0)
+            scale(.5);
+
+        opacity: .15;
+
+    }
+
+    25% {
+
+        transform:
+            translate(30px,-40px)
+            scale(1);
+
+        opacity: 1;
+
+    }
+
+    50% {
+
+        transform:
+            translate(-20px,-80px)
+            scale(.7);
+
+        opacity: .5;
+
+    }
+
+    75% {
+
+        transform:
+            translate(40px,-30px)
+            scale(1.2);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            translate(0,0)
+            scale(.5);
+
+        opacity: .15;
+
+    }
+
+}
+
+
+/* =====================================================
+   PÉTALOS
+===================================================== */
+
+#petalos {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 25;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+}
+
+
+.petalo {
+
+    position: absolute;
+
+    top: -30px;
+
+    width: 12px;
+
+    height: 18px;
+
+    border-radius:
+        70%
+        30%
+        70%
+        30%;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ffd740,
+            #ffb300
+        );
+
+    opacity: .85;
+
+    animation:
+
+        caerPetalo
+        var(--duracion)
+        linear
+        infinite;
+
+    animation-delay:
+        var(--retraso);
+
+}
+
+
+@keyframes caerPetalo {
+
+    0% {
+
+        transform:
+            translateY(-40px)
+            rotate(0deg);
+
+        opacity: 0;
+
+    }
+
+    10% {
+
+        opacity: .9;
+
+    }
+
+    50% {
+
+        transform:
+            translate(
+                var(--movimiento),
+                50vh
+            )
+            rotate(180deg);
+
+    }
+
+    100% {
+
+        transform:
+            translate(
+                calc(var(--movimiento) * -1),
+                110vh
+            )
+            rotate(360deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =====================================================
+   CORAZONES
+===================================================== */
+
+#corazones {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 26;
+
+    pointer-events: none;
+
+}
+
+
+.corazon {
+
+    position: absolute;
+
+    font-size: var(--tamano);
+
+    animation:
+
+        flotarCorazon
+        var(--duracion)
+        ease-in-out
+        infinite;
+
+    animation-delay:
+        var(--retraso);
+
+}
+
+
+@keyframes flotarCorazon {
+
+    0% {
+
+        transform:
+            translateY(30px)
+            scale(.7);
+
+        opacity: 0;
+
+    }
+
+    25% {
+
+        opacity: 1;
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-50px)
+            scale(1);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-130px)
+            scale(.7);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =====================================================
+   CARTA
+===================================================== */
+
+.carta {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(0,0,0,.68);
+
+    backdrop-filter:
+        blur(9px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+
+        opacity .7s ease,
+
+        visibility .7s ease;
+
+}
+
+
+.carta.mostrar {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+.contenido-carta {
+
+    position: relative;
+
+    width: 520px;
+
+    max-width: 90%;
+
+    padding:
+        42px;
+
+    border-radius:
+        28px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #fffde7,
+            #fff59d
+        );
+
+    color:
+        #4e342e;
+
+    text-align: center;
+
+    box-shadow:
+
+        0 0 30px
+        rgba(255,215,0,.8),
+
+        0 25px 80px
+        rgba(0,0,0,.55);
+
+    transform:
+
+        scale(.5)
+        rotateX(20deg);
+
+    transition:
+
+        transform .8s
+        cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+.carta.mostrar
+.contenido-carta {
+
+    transform:
+
+        scale(1)
+        rotateX(0deg);
+
+}
+
+
+.sobre-icono {
+
+    font-size: 55px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.contenido-carta h2 {
+
+    font-size: 34px;
+
+    color:
+        #d68900;
+
+    margin-bottom: 20px;
+
+}
+
+
+.contenido-carta p {
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    margin-bottom: 15px;
+
+}
+
+
+.firma {
+
+    margin-top: 25px;
+
+    font-size: 23px;
+
+    font-weight: bold;
+
+    color:
+        #b76e00;
+
+}
+
+
+#cerrarCarta {
+
+    position: absolute;
+
+    top: 14px;
+
+    right: 18px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #6d4c41;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+}
+
+
+#cerrarCarta:hover {
+
+    transform:
+        scale(1.2);
+
+}
+
+
+/* =====================================================
+   TRANSICIÓN DE CÁMARA
+===================================================== */
+
+body.acercar
+.contenedor {
+
+    transform:
+
+        scale(1.08)
+        translateY(-15px);
+
+}
+
+
+body.acercar
+#campoTulipanes {
+
+    transform:
+
+        scale(1.08)
+        translateY(-15px);
+
+}
+
+
+/* =====================================================
+   RESPONSIVE - CELULAR
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .luna {
+
+        width: 90px;
+
+        height: 90px;
+
+        right: 5%;
+
+        top: 7%;
+
+    }
+
+
+    .titulo {
+
+        top: 6%;
+
+    }
+
+
+    .titulo h1 {
+
+        font-size: 48px;
+
+    }
+
+
+    .titulo p {
+
+        font-size: 15px;
+
+    }
+
+
+    .tulipanes-principales {
+
+        transform:
+            translateX(-50%)
+            scale(.65);
+
+        top: 27%;
+
+    }
+
+
+    .mensaje {
+
+        bottom: 17%;
+
+        min-width: auto;
+
+        width: 80%;
+
+        padding:
+            12px
+            18px;
+
+    }
+
+
+    .mensaje p {
+
+        font-size: 15px;
+
+    }
+
+
+    #boton {
+
+        bottom: 8%;
+
+        padding:
+            15px
+            25px;
+
+        font-size: 17px;
+
+    }
+
+
+    .contenido-carta {
+
+        padding:
+            35px
+            22px;
+
+    }
+
+
+    .contenido-carta h2 {
+
+        font-size: 28px;
+
+    }
+
+
+    .contenido-carta p {
+
+        font-size: 16px;
+
+    }
+
+}
